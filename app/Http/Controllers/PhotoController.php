@@ -83,7 +83,7 @@ class PhotoController extends Controller
         $name_photographer = str_replace(' ', '%20', $photographer->fullname);
         $name_event = str_replace(' ', '%20', $event->event_name);
         $message='Saludos,%20El%20fotografo%20'.$name_photographer.'%20ha%20subido%20'.$cant_photos.'%20fotos%20al%20evento%20'.$name_event.'%20verifica%20si%20apareces%20en%20alguna!';
-        $apikey="YcQZquX5XhE6";
+        $apikey="qeX6CxyuP7GZ";
         //dd($message); die();
         foreach ($users as $user) {
             $url = 'http://api.textmebot.com/send.php?recipient=+591'.$user->number.'&apikey='.$apikey.'&text='.$message;
