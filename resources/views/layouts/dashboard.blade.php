@@ -335,7 +335,7 @@
                 Parcial I - SW
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2022 <a href="https://adminlte.io">Antony</a>.</strong> All rights
+            <strong>Copyright &copy; 2022 <a href="https://adminlte.io">Luis B</a>.</strong> All rights
             reserved.
         </footer>
     </div>

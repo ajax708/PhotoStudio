@@ -83,10 +83,6 @@ class AssignmentController extends Controller
         }
     }
 
-
-
-
-
     //change status of event(I know, this method shouldn't be here xD)
     public static function auxiliar2($event_startdate, $event_endate, $id){
         $formatted_dt1=Carbon::parse($event_startdate);
@@ -115,5 +111,34 @@ class AssignmentController extends Controller
         }
 
         //dd($progress, $fineshed); die();
-    } 
+    }
+
+
+    public  function assignClient(Request $request){
+        try {
+            $idUsers = base64_decode($request->userId);
+            $idEvent = base64_decode($request->idEncrypted);
+
+            $user = User::findOrFail($idUsers);
+
+            if (DB::table('assignments')->where('event_id', $idEvent)->where('user_id', $idUsers)->doesntExist()) {
+                $assign = new Assignment;
+                $assign->event_id = $idEvent;
+                $assign->user_id = $user->id;
+                $assign->rol = $user->rol;
+                $assign->save();
+            }
+
+            return redirect()->route('main.index');
+        } catch (ModelNotFoundException $e) {
+            // Manejar la excepción si el modelo User no se encuentra
+            return redirect()->back()->with('error', 'Usuario no encontrado.');
+        } catch (ValidationException $e) {
+            // Manejar la excepción de validación si es necesario
+            return redirect()->back()->withErrors($e->errors());
+        } catch (\Exception $e) {
+            // Manejar otras excepciones no previstas
+            return redirect()->back()->with('error', 'Se produjo un error inesperado.');
+        }
+    }
 }

@@ -78,7 +78,12 @@ class PhotoController extends Controller
     function send_whatsapp($event_id, $photographer_id, $cant_photos){
         $photographer = User::findOrFail($photographer_id);
         $event = Event::findOrFail($event_id);
-        $users = User::where('rol', 'Cliente')->whereNotNull('number')->get();
+        if ($event){
+            $users = $event->users()->where('rol','cliente')->whereNotNull('number')->get();
+        }else{
+            return false;
+        }
+       // $users = User::where('rol', 'Cliente')->whereNotNull('number')->get();//necesito los clientes que pertenezcan al evento
         //dd($users); die();
         $name_photographer = str_replace(' ', '%20', $photographer->fullname);
         $name_event = str_replace(' ', '%20', $event->event_name);

@@ -54,7 +54,7 @@
                       </a>
                     </td>
                     <td>
-                      <img src="{{ asset('/photos/'.$event->event_qr)}}" alt="QR" width="100px"/>
+                      <img src="{{ asset('storage/photos/'.$event->event_qr)}}" alt="QR" width="100px"/>
                     </td>
                     <td style="text-align: center">
                       <a class="btn btn-success btn-sm" href="{{ route('event.edit', $event->id) }}">Editar</a>

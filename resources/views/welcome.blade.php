@@ -332,7 +332,7 @@
     <div class="container">
       <p>
         &copy; 2022 All Rights Reserved By
-        <a href="https://html.design/">Antony</a>
+        <a href="https://html.design/">Luis B</a>
       </p>
     </div>
   </section>

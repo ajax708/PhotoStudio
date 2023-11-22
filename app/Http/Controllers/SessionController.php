@@ -10,8 +10,20 @@ class SessionController extends Controller
     public function create(){
         return view('auth.login');
     }
-
+    public function createJoin(){
+        return view('auth.loginjoin');
+    }
     public function login(Request $request){
+        //dd($request->all()); die();
+        if (auth()->attempt(request(['username','password'])) == false ) {
+            return back()->withErrors([
+                'message' => 'Datos Incorrectos, Intente de Nuevo!',
+            ]);
+        }
+        //alert()->success('Sessión Exitosa','Bienvenido al Portal')->autoclose(2000);
+        return redirect()->route('main.index');
+    }
+    public function loginJoin(Request $request){
         //dd($request->all()); die();
         if (auth()->attempt(request(['username','password'])) == false ) {
             return back()->withErrors([

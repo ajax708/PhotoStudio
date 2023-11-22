@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddNumberColumnOnUsersTable extends Migration
+class CreateDomainsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddNumberColumnOnUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('number')->nullable()->after('image');
+        Schema::create('domains', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->text('value');
+            $table->text('description')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddNumberColumnOnUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('status');
-        });
+        Schema::dropIfExists('domains');
     }
 }

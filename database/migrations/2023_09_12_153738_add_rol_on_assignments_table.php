@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddNumberColumnOnUsersTable extends Migration
+class AddRolOnAssignmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddNumberColumnOnUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('number')->nullable()->after('image');
+        Schema::table('assignments', function (Blueprint $table) {
+            $table->string('rol')->after('user_id');
         });
     }
 
@@ -25,8 +25,8 @@ class AddNumberColumnOnUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('status');
+        Schema::table('assignments', function (Blueprint $table) {
+            $table->dropColumn('rol');
         });
     }
 }

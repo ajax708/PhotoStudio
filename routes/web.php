@@ -1,5 +1,4 @@
-
- <?php
+<?php
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
@@ -26,7 +25,13 @@ Route::get('/login', [SessionController::class, 'create'])->name('login.index');
 
 Route::post('/login', [SessionController::class, 'login'])->name('login.auth');
 
+Route::get('/loginjoin', [SessionController::class, 'createJoin'])->name('login.indexjoin');
+
+Route::post('/loginjoin', [SessionController::class, 'loginJoin'])->name('login.authjoin');
+
 Route::get('/gallery/photos/event', [PhotoController::class, 'gallery'])->name('photo.gallery');
+
+Route::get('/event/join-event/{idEncrypted}', [EventController::class, 'join'])->name('event.join');
 
 Route::middleware(['auth'])->group(function () {
     //logout
@@ -57,6 +62,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/assignment/show-assignments', [AssignmentController::class, 'show'])->name('assign.show');
     Route::get('/dashboard/assignment/show-photographers/{id}', [AssignmentController::class, 'showprofile'])->name('assign.profile');
     Route::delete('/dashboard/delassignment/{id}', [AssignmentController::class, 'destroy'])->name('assign.destroy');
+    Route::get('dashboard/assigment/assignClient', [AssignmentController::class, 'assignClient'])->name('assign.assingClientEvent');
 
     //rutas de imagenes
     Route::get('/dashboard/photo/addphoto', [PhotoController::class, 'create'])->name('photo.create');

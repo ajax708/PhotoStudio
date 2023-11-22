@@ -12,15 +12,15 @@
   <meta name="author" content="" />
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}" />
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="{{asset('css/style.css')}}" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+  <link href="{{asset('css/responsive.css')}}" rel="stylesheet" />
 
   <title>Parcial-I</title>
   @laravelPWA
@@ -35,7 +35,7 @@
         <div class="row">
           <div class="col-lg-11 offset-lg-1">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
-              <a class="navbar-brand" href="index.html">
+              <a class="navbar-brand" href="{{asset('')}}">
                 <img src="images/logo.png" alt="">
                 <span>
                   Photo Studio
@@ -107,22 +107,22 @@
           </div>
           <div class="social_box">
             <a href="">
-              <img src="images/fb.png" alt="">
+              <img src="{{asset('images/fb.png')}}" alt="">
             </a>
             <a href="">
-              <img src="images/twitter.png" alt="">
+              <img src="{{asset('images/fb.png')}}" alt="">
             </a>
             <a href="">
-              <img src="images/instagram.png" alt="">
+              <img src="{{asset('images/instagram.png')}}" alt="">
             </a>
             <a href="">
-              <img src="images/linkedin.png" alt="">
+              <img src="{{asset('images/linkedin.png')}}" alt="">
             </a>
             <a href="">
-              <img src="images/dribble.png" alt="">
+              <img src="{{asset('images/dribble.png')}}" alt="">
             </a>
             <a href="">
-              <img src="images/pinterest.png" alt="">
+              <img src="{{asset('images/pinterest.png')}}" alt="">
             </a>
           </div>
         </div>
@@ -137,7 +137,7 @@
     <div class="container">
       <p>
         &copy; 2022 All Rights Reserved By
-        <a href="https://html.design/">Antony</a>
+        <a href="https://html.design/">Luis B</a>
       </p>
     </div>
   </section>

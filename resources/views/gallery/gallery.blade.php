@@ -29,13 +29,15 @@ $events = EventController::event_gallery()
     <div class="page">
         <div class="page-content">
             <div class="container">
-                <div class="container pp-section">
-                    <div class="row">
-                        <div class="col-md-9 col-sm-12 px-0">
-                            <h1 class="h3"> Galeria Publica de Nuestras Fotos con sus Respectivos Eventos</h1>
+                <header>
+                    <div class="container pp-section">
+                        <div class="row">
+                            <div class="col-md-9 col-sm-12 px-0">
+                                <h1 class="h3"> Galeria Publica de Nuestras Fotos con sus Respectivos Eventos</h1>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </header>
                 <div class="container px-0 py-4">
                     <div class="pp-category-filter">
                         <div class="row">
