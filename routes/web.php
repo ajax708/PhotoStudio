@@ -31,7 +31,7 @@ Route::post('/loginjoin', [SessionController::class, 'loginJoin'])->name('login.
 
 Route::get('/gallery/photos/event', [PhotoController::class, 'gallery'])->name('photo.gallery');
 
-Route::get('/event/join-event/{idEncrypted}', [EventController::class, 'join'])->name('event.join');
+Route::get('/event/join-event/{idEncrypted}', [EventController::class, 'join'])->name('event.join');//ruta publica para unirse
 
 Route::middleware(['auth'])->group(function () {
     //logout

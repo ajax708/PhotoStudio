@@ -23,13 +23,16 @@ class AssignmentController extends Controller
         //dd($request->all()); die();
         $event = $request->event_id;
         $photographers = $request->id_photographer;
+
         foreach ($photographers as $photographer) {
             if (DB::table('assignments')->where('event_id', $event)->where('user_id', $photographer)->doesntExist()) {
+                $user = User::findOrFail($photographer);
                 $assign = new Assignment;
                 $assign->event_id = $event;
-                $assign->user_id = $photographer;
+                $assign->user_id = $user->id;
+                $assign->rol = $user->rol;
                 $assign->save();
-                $this->send_whatsapp($event, $photographer);
+                //$this->send_whatsapp($event, $photographer);
             }
         }
         return redirect()->route('assign.show');
