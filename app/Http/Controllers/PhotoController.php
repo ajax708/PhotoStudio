@@ -28,7 +28,7 @@ class PhotoController extends Controller
         if ($request->hasFile('event_photo')) {
             $images = $request->file('event_photo');
             $cant_photos = count($images);
-            $this->send_whatsapp($request->event_id, $user_id, $cant_photos);
+ //           $this->send_whatsapp($request->event_id, $user_id, $cant_photos);
             foreach ($images as $image) {
                 $event_image = $image->store('event_photo','photos');
                 $event_photo = new Photo;
